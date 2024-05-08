@@ -16,12 +16,14 @@
         await sleep(1000)
       }
       async function main() {
+        document.getElementById("page_size").innerHTML = `Width = ${window.screen.width}, Height = ${window.screen.height}`;
         spawn_windows()
         await sleep(1000)
         console.log(1)
       }
       document.addEventListener('DOMContentLoaded', main, false)
     </script>
+    <h1 id="page_size"> </h1>
   </body>
 </html> 
 
