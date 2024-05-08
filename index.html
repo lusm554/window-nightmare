@@ -20,6 +20,10 @@
         await sleep(1000)
         window.open("", 't5', "width=300,height=300")
       }
+      async function main() {
+        spawn_windows()
+        await sleep(1000)
+        console.log(1)
       }
       document.addEventListener('DOMContentLoaded', main, false)
     </script>
