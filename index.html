@@ -2,17 +2,13 @@
 <html>
   <body>
     <script>
-      function main() {
-        console.log('hello')
-        /*
-        window.addEventListener("mousemove", (e) => {
-          window.open("", String(new Date()), "width=300,height=300");
-        });
-        */
-        window.open("", 't1', "width=300,height=300");
-        window.open("", 't2', "width=300,height=300");
-        window.open("", 't3', "width=300,height=300");
-        window.open("", 't5', "width=300,height=300");
+      function sleep(sleep_time_in_milliseconds) {
+        // Sync example
+        //let current_time = new Date().getTime()
+        //while(new Date().getTime() < (current_time + sleep_time_in_milliseconds));
+        // Async example
+        return new Promise((resolve) => setTimeout(resolve, sleep_time_in_milliseconds));
+      }
       }
       document.addEventListener('DOMContentLoaded', main, false)
     </script>
