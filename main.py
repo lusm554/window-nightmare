@@ -16,4 +16,4 @@ url = f'file://{sys.argv[1]}'
 print(url)
 driver = webdriver.Chrome(options=options)
 driver.get(url)
-time.sleep(15)
+time.sleep(40)
