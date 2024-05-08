@@ -9,6 +9,17 @@
         // Async example
         return new Promise((resolve) => setTimeout(resolve, sleep_time_in_milliseconds));
       }
+      async function spawn_windows() {
+        window.open("", 't1', "width=300,height=300")
+        await sleep(1000)
+        window.open("", 't2', "width=300,height=300")
+        await sleep(1000)
+        window.open("", 't2', "width=300,height=300")
+        await sleep(1000)
+        window.open("", 't3', "width=300,height=300")
+        await sleep(1000)
+        window.open("", 't5', "width=300,height=300")
+      }
       }
       document.addEventListener('DOMContentLoaded', main, false)
     </script>
