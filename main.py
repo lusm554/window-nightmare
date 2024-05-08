@@ -12,15 +12,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 options = ChromeOptions()
-'''
-options.add_argument("--headless")
-options.add_experimental_option("prefs", {
-		"download.default_directory": './pdfs',
-		"download.prompt_for_download": False,
-		"download.directory_upgrade": True,
-		"plugins.always_open_pdf_externally": True
-})  
-'''
 url = f'file://{sys.argv[1]}'
 print(url)
 driver = webdriver.Chrome(options=options)
