@@ -10,7 +10,7 @@
         return new Promise((resolve) => setTimeout(resolve, sleep_time_in_milliseconds));
       }
       async function spawn_windows() {
-        window.open("", 't1', "width=400,height=400")
+        window.open("", 't1', "width=400,height=400,screenX=100,screenY=0")
         await sleep(1000)
         window.open("", 't2', "width=400,height=400")
         await sleep(1000)
