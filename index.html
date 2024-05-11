@@ -12,7 +12,7 @@
       async function spawn_windows() {
         for (let i = 0; i < 1000; i += 150) {
           window.open("", `t${i}`, `width=400,height=400,screenX=${i},screenY=0`)
-          //await sleep(150)
+          await sleep(150)
         }
         /*
         for (let i = 0; i < 1000; i += 150) {
