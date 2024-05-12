@@ -1,4 +1,10 @@
+Run script:
+-----------
+1. Git clone 
+2. make run
+
 For chrome driver cache:
+-----------------------
   Automatic download of appropriate chromedriver for Selenium in Python - https://stackoverflow.com/questions/62017043/automatic-download-of-appropriate-chromedriver-for-selenium-in-python
   Chrome driver releases - https://chromedriver.chromium.org/downloads
   Autodownloader chrome driver - https://pypi.org/project/chromedriver-autoinstaller/
