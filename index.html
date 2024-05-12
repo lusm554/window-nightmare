@@ -9,27 +9,21 @@
         // Async example
         return new Promise((resolve) => setTimeout(resolve, sleep_time_in_milliseconds));
       }
-      async function spawn_windows() {
+      async function spawn_windows(screenY) {
+        let popup_window_filepath = 'popup.html'
         for (let i = 0; i < 1000; i += 150) {
-          window.open("", `t${i}`, `width=400,height=400,screenX=${i},screenY=0`)
-          await sleep(150)
+          window.open(
+            popup_window_filepath,
+            window.crypto.randomUUID(),
+            `width=400,height=400,screenX=${i},screenY=${screenY}`
+          )
         }
-        /*
-        for (let i = 0; i < 1000; i += 150) {
-          window.open("", `b${i}`, `width=400,height=400,screenX=${i},screenY=500`)
-          await sleep(150)
-        }
-        for (let i = 0; i < 1000; i += 150) {
-          window.open("", `j${i}`, `width=400,height=400,screenX=${i},screenY=900`)
-          await sleep(150)
-        }
-        */
       }
       async function main() {
         document.getElementById("page_size").innerHTML = `Width = ${window.screen.width}, Height = ${window.screen.height}`;
-        spawn_windows()
-        await sleep(1000)
-        console.log(1)
+        await spawn_windows(0)
+        await spawn_windows(400)
+        await spawn_windows(600)
       }
       document.addEventListener('DOMContentLoaded', main, false)
     </script>
