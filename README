@@ -3,6 +3,12 @@ UNIX run script:
 1. Git clone 
 2. Run `make run`
 
+Windows run script:
+1. python3 -m venv .venv
+2. venv\Scripts\activate
+3. pip install -r requiremets.txt --quiet
+4. python3 main.py $(realpath index.html)
+
 
 For chrome driver cache:
 -----------------------
