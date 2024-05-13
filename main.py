@@ -5,6 +5,7 @@ from webdriver_manager.core.os_manager import ChromeType
 import time
 import logging
 import sys
+import os
 
 logging.basicConfig(
   level=logging.INFO,
@@ -14,7 +15,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 options = ChromeOptions()
-url = f'file://{sys.argv[1]}'
+index_html_filepath = os.path.realpath(sys.argv[1])
+url = f'file://{index_html_filepath}'
 logger.info(f'{url=!r}')
 driver_path = ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
 logger.info(f'{driver_path=!r}')
