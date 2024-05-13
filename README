@@ -1,7 +1,8 @@
-Run script:
------------
+UNIX run script:
+----------------
 1. Git clone 
-2. make run
+2. Run `make run`
+
 
 For chrome driver cache:
 -----------------------
