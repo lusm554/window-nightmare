@@ -8,6 +8,6 @@ install_reqs: activate_venv
 	pip install -r requiremets.txt --quiet
 
 run: install_reqs
-	python3 main.py $(realpath index.html)
+	python3 main.py index.html
 
 all: run
