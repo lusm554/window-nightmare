@@ -2,11 +2,11 @@
 <html>
   <body>
     <script>
+      function set_info() {
+        let page_size = `Width = ${window.screen.width}, Height = ${window.screen.height}`
+        document.getElementById("page_size").innerHTML = page_size
+      }
       function sleep(sleep_time_in_milliseconds) {
-        // Sync example
-        //let current_time = new Date().getTime()
-        //while(new Date().getTime() < (current_time + sleep_time_in_milliseconds));
-        // Async example
         return new Promise((resolve) => setTimeout(resolve, sleep_time_in_milliseconds));
       }
       async function spawn_windows(screenY) {
@@ -20,12 +20,16 @@
         }
       }
       async function main() {
-        document.getElementById("page_size").innerHTML = `Width = ${window.screen.width}, Height = ${window.screen.height}`;
+        if (!('windows_cnt' in window)) {
+          window.windows_cnt = 10
+        }
+        console.log(windows_cnt)
+        set_info()
         await spawn_windows(0)
         await spawn_windows(400)
         await spawn_windows(600)
       }
-      document.addEventListener('DOMContentLoaded', main, false)
+      //document.addEventListener('DOMContentLoaded', main, false)
     </script>
     <h1 id="page_size"> </h1>
   </body>
