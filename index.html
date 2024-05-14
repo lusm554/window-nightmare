@@ -9,6 +9,7 @@
       function sleep(sleep_time_in_milliseconds) {
         return new Promise((resolve) => setTimeout(resolve, sleep_time_in_milliseconds));
       }
+      /*
       async function spawn_windows(screenY) {
         let popup_window_filepath = 'popup.html'
         for (let i = 0; i < 1000; i += 150) {
@@ -19,15 +20,23 @@
           )
         }
       }
+      */
+      async function spawn_windows(win_cnt, url_to_open) {
+        for (let win_n = 0; win_n < win_cnt; win_n += 1) {
+          window.open(
+            url_to_open,
+            window.crypto.randomUUID(),
+            `width=400,height=400,screenX=${win_n},screenY=0`
+          )
+        }
+      }
       async function main() {
         if (!('windows_cnt' in window)) {
-          window.windows_cnt = 10
+          window.windows_cnt = 1
         }
         console.log(windows_cnt)
         set_info()
-        await spawn_windows(0)
-        await spawn_windows(400)
-        await spawn_windows(600)
+        await spawn_windows(windows_cnt, 'popup.html')
       }
       //document.addEventListener('DOMContentLoaded', main, false)
     </script>
