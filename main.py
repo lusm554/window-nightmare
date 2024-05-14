@@ -39,7 +39,6 @@ def main():
   index_html_filepath, open_windows_cnt = parse_cli_args()
   driver = get_driver()
   url = f'file://{index_html_filepath}'
-  return
   driver.get(url)
   driver.execute_script(f'window.windows_cnt = {open_windows_cnt}')
   driver.execute_script('main()')
