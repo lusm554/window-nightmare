@@ -16,7 +16,10 @@ logger = logging.getLogger(__name__)
 
 def parse_cli_args():
   index_html_filepath = os.path.realpath(sys.argv[1])
-  return index_html_filepath
+  open_windows_cnt = int(sys.argv[2])
+  logger.info(f'{open_windows_cnt=}')
+  logger.info(f'{index_html_filepath=}')
+  return index_html_filepath, open_windows_cnt
 
 def get_driver_path():
   driver_path = ChromeDriverManager().install()
@@ -33,11 +36,12 @@ def get_driver():
   return driver
 
 def main():
-  index_html_filepath = parse_cli_args()
+  index_html_filepath, open_windows_cnt = parse_cli_args()
   driver = get_driver()
   url = f'file://{index_html_filepath}'
+  return
   driver.get(url)
-  driver.execute_script(f'window.windows_cnt = 1')
+  driver.execute_script(f'window.windows_cnt = {open_windows_cnt}')
   driver.execute_script('main()')
   time.sleep(40)
 
