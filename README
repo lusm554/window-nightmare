@@ -6,7 +6,7 @@ UNIX run script:
 Windows run script:
 -------------------
 1. python3 -m venv .venv
-2. venv\Scripts\activate
+2. .venv\Scripts\activate
 3. pip install -r requiremets.txt --quiet
 4. python3 main.py index.html
 
