@@ -9,24 +9,16 @@
       function sleep(sleep_time_in_milliseconds) {
         return new Promise((resolve) => setTimeout(resolve, sleep_time_in_milliseconds));
       }
-      /*
-      async function spawn_windows(screenY) {
-        let popup_window_filepath = 'popup.html'
-        for (let i = 0; i < 1000; i += 150) {
-          window.open(
-            popup_window_filepath,
-            window.crypto.randomUUID(),
-            `width=400,height=400,screenX=${i},screenY=${screenY}`
-          )
-        }
-      }
-      */
       async function spawn_windows(win_cnt, url_to_open) {
-        for (let win_n = 0; win_n < win_cnt; win_n += 1) {
+        let window_width = 300;
+        let window_height = 300;
+        let x_step = 10;
+        let y_step = 20;
+        for (let win_n = 0, win_x = 0, win_y = 0; win_n < win_cnt; win_n += 1, win_x += x_step, win_y += y_step) {
           window.open(
             url_to_open,
             window.crypto.randomUUID(),
-            `width=400,height=400,screenX=${win_n},screenY=0`
+            `width=${window_width},height=${window_height},screenX=${win_x},screenY=${win_y}`
           )
         }
       }
