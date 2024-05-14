@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions, ActionChains
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import logging
@@ -13,7 +14,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def parse_args():
+def parse_cli_args():
   index_html_filepath = os.path.realpath(sys.argv[1])
   return index_html_filepath
 
@@ -21,14 +22,20 @@ def get_driver_path():
   driver_path = ChromeDriverManager().install()
   return driver_path
 
-def main():
-  index_html_filepath = parse_args()
-  options = ChromeOptions()
-  url = f'file://{index_html_filepath}'
-  logger.info(f'{url=!r}')
-  logger.info(f'{driver_path=!r}')
+def get_driver():
   driver_path = get_driver_path()
-  driver = webdriver.Chrome(options=options)
+  options = ChromeOptions()
+  service = Service(executable_path=driver_path)
+  driver = webdriver.Chrome(
+    service=service,
+    options=options,
+  )
+  return driver
+
+def main():
+  index_html_filepath = parse_cli_args()
+  driver = get_driver()
+  url = f'file://{index_html_filepath}'
   driver.get(url)
   driver.execute_script(f'window.windows_cnt = 1')
   driver.execute_script('main()')
