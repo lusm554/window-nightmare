@@ -12,8 +12,8 @@
       async function spawn_windows(win_cnt, url_to_open) {
         let window_width = 300;
         let window_height = 300;
-        let x_step = 10;
-        let y_step = 20;
+        let x_step = 5;
+        let y_step = 5;
         for (let win_n = 0, win_x = 0, win_y = 0; win_n < win_cnt; win_n += 1, win_x += x_step, win_y += y_step) {
           window.open(
             url_to_open,
