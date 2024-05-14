@@ -26,9 +26,12 @@
         if (!('windows_cnt' in window)) {
           window.windows_cnt = 1
         }
+        if (!('popup_url' in window)) {
+          window.popup_url = 'popup.html'
+        }
         console.log(windows_cnt)
         set_info()
-        await spawn_windows(windows_cnt, 'popup.html')
+        await spawn_windows(windows_cnt, popup_url)
       }
       //document.addEventListener('DOMContentLoaded', main, false)
     </script>
